@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="si" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Learn Git in Sinhala: 20 modules, 40 lessons, annotated commands, staging and merge conflict labs, GitHub workflows and an offline practice workbook.">
+  <title>Git Academy · සිංහලෙන් version control ඉගෙන ගනිමු</title>
+  <link rel="stylesheet" href="assets/angular.css">
+  <link rel="stylesheet" href="assets/git.css">
+  <script defer src="assets/git-course.js"></script>
+  <script defer src="assets/git-labs.js"></script>
+  <script defer src="assets/git-app.js"></script>
+</head>
+<body>
+  <a href="#main" class="skip">ප්‍රධාන අන්තර්ගතයට යන්න</a>
+  <div id="scrim" class="scrim" hidden></div>
+  <aside id="sidebar" class="sidebar" aria-label="Git course navigation">
+    <button class="icon-button mobile menu-close" id="menu-close" aria-label="Close navigation">×</button>
+    <a class="all-courses" href="index.html#courses">← සියලු පාඨමාලා · All courses</a>
+    <a class="brand" href="#home"><span class="brand-mark" aria-hidden="true">g</span><span>git<span class="accent">.</span>academy<small>VERSION CONTROL · සිංහලෙන්</small></span></a>
+    <nav id="side-nav" class="side-nav" aria-label="Learning tools"></nav>
+    <label class="search-label" for="lesson-search">පාඩමක් සොයන්න · Search lessons</label>
+    <input id="lesson-search" type="search" placeholder="Commit, branch, merge…" autocomplete="off">
+    <div class="syllabus-heading"><span>YOUR LEARNING PATH</span><span>20</span></div>
+    <nav id="syllabus" class="syllabus" aria-label="Modules and lessons"></nav>
+    <div class="side-progress"><div class="row between"><span>ඔබේ ප්‍රගතිය</span><b id="progress-percent">0%</b></div><div id="side-progress" class="progressbar" role="progressbar" aria-label="Git course completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div><small id="completed-count">0 / 40 lessons</small></div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar"><div class="row"><button class="icon-button mobile" id="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">☰</button><a href="index.html#courses" class="top-all">▦ Courses</a><span class="breadcrumb">Developer tools <span>/</span> <b id="crumb">Git workspace</b></span></div><div class="row"><span class="badge top-badge">GIT · FROM ZERO TO TEAMWORK</span><button class="icon-button" id="theme-toggle" aria-label="Switch to dark theme">◐</button></div></header>
+    <div id="storage-status" class="storage-status" role="status" hidden></div>
+    <main id="main" tabindex="-1"></main>
+    <footer class="footer">Git Academy · වෙනස් කරන්න. තේරුම් ගන්න. එකට හදන්න. <a href="index.html#courses">All courses ↗</a></footer>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <noscript><p>මෙම interactive course එකට browser JavaScript සක්‍රිය කරන්න.</p></noscript>
+</body>
+</html>

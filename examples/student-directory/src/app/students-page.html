@@ -1,0 +1,52 @@
+<section class="intro">
+  <span class="eyebrow">YOUR CLASSROOM, CONNECTED</span>
+  <h1>A little space for<br><span>everyone in your class.</span></h1>
+  <p>Add a name, make a connection, keep things organized.</p>
+  <small>{{ useMock ? 'Mock mode · sample data resets on reload' : 'API mode · connected to your backend' }}</small>
+</section>
+<div class="workspace-grid" [attr.aria-busy]="loading() || saving()">
+  <section class="panel" aria-labelledby="directory-title">
+    <div class="panel-head"><h2 id="directory-title">Your students <span class="count">{{ visible().length }}</span></h2>
+      <button type="button" (click)="load()" [disabled]="loading() || saving()">Reload</button></div>
+    <label for="search">Search by name or email</label>
+    <input id="search" type="search" placeholder="Find someone…" [value]="query()" (input)="query.set($any($event.target).value)">
+    @if (loading()) { <p role="status">Loading students…</p> }
+    @else {
+      <div class="student-list">
+        @for (student of visible(); track student.id) {
+          <article class="student">
+            <span class="avatar" aria-hidden="true">{{ student.name.slice(0, 1) }}</span>
+            <div class="student-info"><h3>{{ student.name }}</h3><p>{{ student.email }}</p></div>
+            <div class="actions">
+              <button type="button" (click)="edit(student)" [disabled]="saving()" [attr.aria-label]="'Edit ' + student.name">Edit</button>
+              <button type="button" class="danger" (click)="pendingDelete.set(student)" [disabled]="saving()" [attr.aria-label]="'Delete ' + student.name">Delete</button>
+            </div>
+          </article>
+        } @empty { <p class="empty">{{ query() ? 'No matching students. Try another search.' : 'No students yet. Add your first student.' }}</p> }
+      </div>
+    }
+  </section>
+  <section class="panel" aria-labelledby="form-title">
+    <span class="eyebrow">MAKE ROOM FOR SOMEONE</span>
+    <h2 id="form-title">{{ editingId() === null ? 'Add a student' : 'Edit student' }}</h2>
+    <form [formGroup]="form" (ngSubmit)="save()" novalidate>
+      <fieldset [disabled]="saving() || loading()">
+        <label for="student-name">Student name</label>
+        <input id="student-name" formControlName="name" maxlength="80" autocomplete="name" aria-describedby="name-error" [attr.aria-invalid]="form.controls.name.touched && form.controls.name.invalid">
+        <p id="name-error" class="field-error">@if (form.controls.name.touched && form.controls.name.invalid) { Enter a name with 2–80 characters. }</p>
+        <label for="student-email">Email address</label>
+        <input id="student-email" type="email" formControlName="email" maxlength="254" autocomplete="email" aria-describedby="email-error" [attr.aria-invalid]="form.controls.email.touched && form.controls.email.invalid">
+        <p id="email-error" class="field-error">@if (form.controls.email.touched && form.controls.email.invalid) { Enter a valid email address. }</p>
+        <div class="form-actions"><button type="submit" class="primary">{{ saving() ? 'Saving…' : editingId() === null ? 'Add student →' : 'Save changes' }}</button><button type="button" (click)="cancel()">{{ editingId() === null ? 'Clear' : 'Cancel edit' }}</button></div>
+      </fieldset>
+    </form>
+    @if (notice()) { <p class="notice" role="status">{{ notice() }}</p> }
+    @if (error()) { <p class="error" role="alert">{{ error() }}</p> }
+    @if (pendingDelete(); as student) {
+      <div class="delete-confirm" role="group" aria-label="Confirm deletion">
+        <p>Delete <b>{{ student.name }}</b>? This cannot be undone.</p>
+        <div class="form-actions"><button type="button" class="danger" (click)="confirmDelete()" [disabled]="saving() || loading()">Confirm delete</button><button type="button" (click)="pendingDelete.set(null)" [disabled]="saving()">Keep student</button></div>
+      </div>
+    }
+  </section>
+</div>

@@ -1,0 +1,33 @@
+@base = http://localhost:8080
+# Replace studentId with the ID returned by the create request.
+@studentId = 1
+
+### Health
+GET {{base}}/actuator/health
+
+### List
+GET {{base}}/api/students
+
+### Create
+POST {{base}}/api/students
+Content-Type: application/json
+
+{"name":"Amali Perera","email":"amali@example.com"}
+
+### Read one (use the actual created ID)
+GET {{base}}/api/students/{{studentId}}
+
+### Update (both fields required)
+PATCH {{base}}/api/students/{{studentId}}
+Content-Type: application/json
+
+{"name":"Amali Silva","email":"amali@example.com"}
+
+### Invalid input -> 400
+POST {{base}}/api/students
+Content-Type: application/json
+
+{"name":" ","email":"bad"}
+
+### Delete -> 204
+DELETE {{base}}/api/students/{{studentId}}
