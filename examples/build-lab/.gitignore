@@ -1,0 +1,10 @@
+**/node_modules/
+**/dist/
+**/.angular/
+**/target/
+**/data/
+**/__pycache__/
+**/.pytest_cache/
+**/.venv/
+**/*.db
+**/.env

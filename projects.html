@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="si" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="සිංහලෙන් project එකක් මුල සිට හදමු. POS, e-commerce සහ ERP සඳහා ordered lessons, SVG blueprints, live UI studio සහ downloadable source code.">
+  <title>Build Lab · මුල සිට සැබෑ project එකකට</title>
+  <link rel="stylesheet" href="assets/build-lab.css">
+  <script defer src="assets/build-curriculum.js"></script>
+  <script defer src="assets/build-sources.js"></script>
+  <script defer src="assets/build-lab.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">ප්‍රධාන අන්තර්ගතයට යන්න</a>
+  <button class="scrim" id="scrim" aria-label="Close navigation" hidden></button>
+  <aside class="sidebar" id="sidebar" aria-label="Build Lab navigation">
+    <a class="brand" href="#pos/overview"><span class="brand-symbol">b<span>↗</span></span><span>build<span class="brand-dot">.</span>lab<small>CODE ACADEMY / සිංහලෙන්</small></span></a>
+    <button class="icon mobile close-nav" id="close-nav" aria-label="Close navigation">×</button>
+    <a class="back-link" href="index.html#courses">← සියලු පාඨමාලා</a>
+    <p class="nav-label">YOUR WORKSPACE</p>
+    <nav id="workspace-nav" aria-label="Project tools"></nav>
+    <div class="sidebar-divider"></div>
+    <div class="row between"><p class="nav-label">THE LEARNING PATH</p><span class="small muted" id="lesson-count"></span></div>
+    <label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" aria-label="Search project lessons" placeholder="පාඩමක් සොයන්න…"></label>
+    <nav class="lesson-nav" id="lesson-nav" aria-label="Ordered project lessons"></nav>
+    <div class="sidebar-bottom"><div class="row between"><b>ඔබේ ප්‍රගතිය</b><span id="progress-text">0%</span></div><progress id="progress" max="28" value="0" aria-label="Project lesson progress"></progress><small id="progress-detail">0 / 28 milestones</small><a href="angular.html">Angular reference course ↗</a></div>
+  </aside>
+  <div class="workspace" id="workspace">
+    <header class="topbar"><div class="row"><button class="icon mobile" id="open-nav" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">☰</button><a href="index.html#courses">Academy</a><span class="muted">/</span><b>Project workspace</b></div><div class="row"><span class="offline"><i></i> OFFLINE READY</span><button class="icon" id="theme" aria-label="Switch to dark theme">◐</button></div></header>
+    <div id="storage-notice" class="storage-notice" role="status" hidden>Browser storage ලබාගත නොහැක. මේ session එකේ progress තබාගන්නවා.</div>
+    <div class="project-switcher" id="project-switcher" aria-label="Choose a project"></div>
+    <main id="main" tabindex="-1"></main>
+    <footer>කියවන්න. තේරුම් ගන්න. ඔබම හදන්න.<span>BUILD LAB · ZERO → RELEASE</span></footer>
+  </div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <noscript>මේ interactive lessons භාවිතා කිරීමට browser JavaScript සක්‍රිය කරන්න.</noscript>
+</body>
+</html>

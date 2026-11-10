@@ -1,5 +1,30 @@
 # Code Academy · සිංහලෙන් ඉගෙන ගනිමු
 
+## Build Lab · start here for an ordered project journey
+
+Open **[projects.html](projects.html)** and choose **POS → 01 · මෙතැනින් පටන් ගන්න**. Three new Sinhala project courses each have **28 ordered milestones**: **Pocket POS**, **Little Shop e-commerce**, and **Flow ERP**. Start with requirements, tools, Git, HTML/CSS and JavaScript from zero; continue through TypeScript, Angular, backend language fundamentals, APIs, relational data, migrations, business transactions, integration, permissions, tests, Docker, GitHub CI and a release/recovery runbook.
+
+Every milestone includes prerequisites, explained code, a play/pause/speed-controlled code replay, practical steps, expected output, troubleshooting and a checked question. Completion requires a passed question and a self-reported practical check. Four original SVG blueprints explain architecture, relationships, request flow and deployment; diagrams download as SVGs. The live UI studio lets learners change spacing/radius/colors, compare phone layouts, inspect generated CSS, and try explicit in-memory cart/stock simulations. Code replay explains source text; it does not execute the displayed language or provide recorded video.
+
+**Source & downloads** contains complete ZIPs with Angular frontends, real FastAPI or Spring Boot backends, database migrations, API contracts, dependency locks, transaction/permission tests, Compose configurations, CI workflows and Sinhala workbooks. POS/shop use SQLite and SQLAlchemy; ERP uses Spring JDBC, Flyway and file-backed H2 with an optional PostgreSQL profile. Extract one ZIP and follow its included README, starting with `.env.example`. The local projects implement real persistence and authorization; the browser studio is a separate simulation. These are learning capstones. The release checklist identifies the production identity, HTTPS, idempotency, target-database testing, backups, monitoring and recovery work still required.
+
+All four original courses also include a visible project-path entry and guided replay for their annotated code/commands. Existing course IDs and progress keys are preserved. New project progress uses `build-lab-si-v1`, validates stored data and falls back to session state when browser storage is unavailable. Release checkmarks are self-reported review notes, separately from lesson completion. The catalog now includes all seven courses and a **Project courses** filter.
+
+Maintained source templates and regeneration instructions: [examples/build-lab/README.md](examples/build-lab/README.md). Regenerate after edits:
+
+```bash
+node scripts/export-build-workbooks.cjs
+python3 scripts/bundle-build-projects.py
+```
+
+Browser verification (use your installed Playwright and Chromium paths):
+
+```bash
+PLAYWRIGHT_MODULE=/path/to/playwright BROWSER_PATH=/path/to/chromium node checks/build-lab-browser.cjs
+```
+
+The browser suite opens local files directly and covers all 84 milestones, prerequisite navigation, explanation replay, quizzes/practical completion, saved progress, source downloads, SVG blueprints, studio conflicts and state changes, mobile navigation, 320–1440px layouts, all four reference-course replay integrations, and malformed/blocked storage. Backend tests and actual Angular builds are separate from this browser simulation verification.
+
 Open **`index.html`** directly in a modern browser. No installation, build step, internet connection, Python server, or database is required.
 
 The course catalog links to **FastAPI & Python**, **Angular**, **Git & GitHub**, and **Java & Spring Boot**, with separate saved progress and Frontend, Backend, and Developer tools filters.
